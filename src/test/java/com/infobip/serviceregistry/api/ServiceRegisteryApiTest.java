@@ -38,6 +38,25 @@ public class ServiceRegisteryApiTest extends AbstractAPITest {
 
     }
     @Test
+    public void testAccountCreationWithDuplicateAccountId() throws Exception {
+
+        testAccountCreation();
+
+        Map request = new HashMap<String,String>();
+
+        request.put("AccountId","abc123");
+        request.put("UserName","test123");
+
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.post("/account")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(super.mapToJson(request))).andReturn();
+
+        Assert.assertEquals("Account Creation Service Failed",403,result.getResponse().getStatus());
+
+    }
+
+    @Test
     public void testRegistration() throws Exception {
 
         testAccountCreation();
@@ -56,6 +75,24 @@ public class ServiceRegisteryApiTest extends AbstractAPITest {
 
     }
     @Test
+    public void testRegistrationWithAccountIdNotPresent() throws Exception {
+
+        testAccountCreation();
+
+        Map request = new HashMap<String,String>();
+
+        request.put("AccountId","xyz123");
+        request.put("url","http://yahoo.co.in");
+
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.post("/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(super.mapToJson(request))).andReturn();
+
+        Assert.assertEquals("Account Registration Service Failed",400,result.getResponse().getStatus());
+
+    }
+    @Test
     public void testStatistic() throws Exception {
 
          testRegistration();
@@ -64,6 +101,17 @@ public class ServiceRegisteryApiTest extends AbstractAPITest {
          .accept(MediaType.APPLICATION_JSON)).andReturn();
 
         Assert.assertEquals("Statistic service Failed",200,result.getResponse().getStatus());
+
+    }
+    @Test
+    public void testStatisticWithAccountIdNotPresent() throws Exception {
+
+        testRegistration();
+
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/statistic/xyz123")
+                .accept(MediaType.APPLICATION_JSON)).andReturn();
+
+        Assert.assertEquals("Statistic service Failed",400,result.getResponse().getStatus());
 
     }
 
