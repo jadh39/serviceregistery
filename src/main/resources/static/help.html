@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServiceRegistery</title>
+</head>
+<body>
+<p><strong>Tchnology Used</strong></p>
+<ol>
+    <li>Spring Boot</li>
+    <li>Spring MVC</li>
+    <li>Spring Data JPA</li>
+    <li>Gradle</li>
+    <li>H2 embedded database</li>
+</ol>
+<p><strong>How to Run</strong></p>
+<ol>
+    <li>go to parent folder of the project and <strong>run gradle clean build</strong> command it will create the jar file "<strong>serviceregistry-0.0.1-SNAPSHOT.jar</strong>" @ /build/libs folder</li>
+    <li><strong>goto&nbsp;</strong>/build/libs and run <strong>java -jar serviceregistry-0.0.1-SNAPSHOT.jar</strong> or <strong>got to</strong> parent directory and run g<strong>radle bootRun</strong> command</li>
+</ol>
+<p><strong>API End Points</strong></p>
+<p><strong>1) Create Account</strong></p>
+<p><strong>&nbsp;&nbsp;&nbsp; URI : POST <a href="http://localhost:8080/account">http://localhost:8080/account</a></strong></p>
+<p><strong>&nbsp;&nbsp;&nbsp; Request Json: </strong></p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "AccountId":"xbt123z",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; "UserName":"test123"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p style="text-align: left;">&nbsp; <strong>Response</strong> : 201 created&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<pre class="wrap"><code class="hljs language-json">   {
+    <span class="hljs-attr">"password"</span>: <span class="hljs-string">"175bccb7"</span>,
+    <span class="hljs-attr">"discription"</span>: <span class="hljs-string">"Your Account is Opened"</span>,
+    <span class="hljs-attr">"success"</span>: <span class="hljs-string">"true"</span>
+    }<br /><br /><p><strong>2)Register Account</strong></p><br /><br />  <strong>URI</strong>: POST <a href="http://localhost:8080/register">http://localhost:8080/register</a><br /></code></pre>
+<p><strong>&nbsp; Request Json: </strong></p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "url":"http://www.yahoo.co.in",<br />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; "AccountId":"abc123z"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p style="text-align: left;">&nbsp; <strong>Response</strong> : 202 Accepted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<pre class="wrap"><code class="hljs language-json">  {
+    <span class="hljs-attr">"shortURL"</span>: <span class="hljs-string">"http://localhost:8080/infobib/c1501d9f"</span>
+    }<br /></code></pre>
+<pre class="wrap"><code class="hljs language-json"><strong>3)Retrieval of statistics</strong><br /><br />  <strong>URI</strong>: GET http://localhost:8080/statistic/{accountId}<br /></code></pre>
+<p style="text-align: left;"><strong>&nbsp;</strong>&nbsp; <strong>Response</strong> : 200 OK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<pre class="wrap"><code class="hljs language-json">{
+    <span class="hljs-attr">"http://www.yahoo.co.in"</span>: <span class="hljs-number">1</span>
+    }<br /><br /><strong>4) Redirect</strong><br /><br />enter the short url into the browser it will automatically redirect to Long URL<br />e.x. enter the url <strong><span class="hljs-string"><a href="http://localhost:8080/infobib/c1501d9f">http://localhost:8080/infobib/c1501d9f</a> </span></strong><span class="hljs-string">it will redirect to<br /><strong>http://www.yahoo.co.in</strong> <br /><br /><strong>How to access H2 embedded db console<br /><br /></strong>1)enter the following url http://localhost:8080/console/<br /><br />2)enter the jdbc url jdbc:h2:mem:testdb <br /><br />3)click on connect<br /><br /></span></code></pre>
+<pre class="wrap"><code class="hljs language-json">&nbsp;</code></pre>
+<pre class="wrap"><code class="hljs language-json">&nbsp;</code></pre>
+<pre class="wrap"><code class="hljs language-json">&nbsp;</code></pre>
+<pre class="wrap"><code class="hljs language-json">&nbsp;</code></pre>
+</body>
+</html>
