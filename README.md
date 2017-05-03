@@ -8,11 +8,23 @@ Check out the repository using below command
 
 git@github.com:jadh39/serviceregistery.git
 
-How to RUN
+Tchnology Used
 
-go to parent folder of the project and run gradle bootRun.
+    Spring Boot
+    Spring MVC
+    Spring Data JPA
+    Gradle
+    H2 embedded database
 
-More informatio about this application can be found on help page 
+How to Run
+
+go to parent folder of the project and run gradle clean build command it will create the jar file "serviceregistry-0.0.1-
+
+SNAPSHOT.jar" @ build/libs folder
+
+goto /build/libs and run java -jar serviceregistry-0.0.1-SNAPSHOT.jar or got to parent directory and run gradle bootRun command
+
+More information about this application can be found on help page 
 
 http://localhost:8080/help.html
 
