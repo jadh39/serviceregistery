@@ -15,8 +15,11 @@ Tchnology Used
     Spring Data JPA
     Gradle
     H2 embedded database
+Data Base Schema diagram.
 
-How to Run
+<p><img src= "erd.png"/></p>
+
+<b>How to Run</b>
 
 go to parent folder of the project and run gradle clean build command it will create the jar file "serviceregistry-0.0.1-
 
